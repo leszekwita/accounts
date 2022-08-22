@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: accounts
+  profiles:
+    active: production
+  sleuth:
+    http:
+      legacy:
+        enabled: true
+# ACTUATOR INFO
+eureka:
+  client: ${eureka-client}
+application:
+  allow-get-accounts: ${accounts.allow-get-accounts}
+info:
+  app:
+    name: Accounts
+    profile: "${spring.profiles.active}"
+    version: "0.0.1"
+  serverInfo:
+    port: "${server.port}"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 9998
+
+feign:
+  hystrix:
+    enabled: true
+
+
+
+
+
+
+
+
